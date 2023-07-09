@@ -14,9 +14,10 @@ export default function Revalidate({ lastUpdate }: InferGetStaticPropsType<typeo
 }
 
 export async function getStaticProps() {
+  const lastUpdate= formatter.format(new Date);
   return {
     props: {
-      lastUpdate: formatter.format(new Date)
+      lastUpdate
     },
     revalidate: 10, // In seconds
   }
