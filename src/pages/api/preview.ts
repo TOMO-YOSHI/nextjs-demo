@@ -1,7 +1,7 @@
 import { getPostBySlug } from '../../lib/utils';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-// http://localhost:3000/api/preview?secret=MY_SECRET_TOKEN&slug='/ssg/draft'
+// http://localhost:3000/api/preview?secret=MY_SECRET_TOKEN&slug=/ssg/draft
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   // Check the secret and next parameters
@@ -22,7 +22,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(401).json({ message: 'No article exists' })
   }
 
-  res.setPreviewData(post)
+  res.setPreviewData(post, {
+    maxAge: 60, // The preview mode cookies expire in 60 sec
+    path: '/ssg/preview', // The preview mode cookies apply to paths with /ssg/draft
+  })
 
   // Redirect to the path from the fetched post
   // We don't redirect to req.query.slug as that might lead to open redirect vulnerabilities

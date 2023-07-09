@@ -1,5 +1,6 @@
 import '../../../src/app/globals.css'
 import type { GetStaticPropsContext, InferGetStaticPropsType, GetStaticPaths } from 'next';
+import { formatter } from '../../lib/utils';
 import type { Article } from '../../types';
 
 type MyPreviewData = Article;
@@ -13,6 +14,9 @@ export default function SsgPage({ article }: InferGetStaticPropsType<typeof getS
       <h1 className="text-center text-2xl">{article?.title}</h1>
       <p className="text-center text-lg mt-2">{article?.body}</p>
       <p className="text-center text-lg mt-2">Updated at {article?.lastUpdate}</p>
+      {
+        article?.slug === "/ssg/static" && <p className="text-center text-lg mt-2">SSG static page is revalidated every 10s.</p>
+      }
     </main>
   )
 }
@@ -26,7 +30,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
         },
       },
     ],
-    fallback: 'blocking', // true | false | 'blocking'
+    fallback: true, // true | false | 'blocking'
   }
 }
 
@@ -37,7 +41,7 @@ export async function getStaticProps(context: GetStaticPropsContext<PageParams, 
   // - context.preview will be true
   // - context.previewData will be the same as
   //   the argument used for `setPreviewData`.
-  if (context.preview && slug === 'draft') {
+  if (context.preview && slug === 'preview') {
     return {
       props: {
         article: context.previewData
@@ -50,7 +54,7 @@ export async function getStaticProps(context: GetStaticPropsContext<PageParams, 
     slug: `/ssg/static`,
     title: "SSG",
     body: "This is a static page.",
-    lastUpdate: new Date().toLocaleTimeString()
+    lastUpdate: formatter.format(new Date)
   } : null;
 
   if (!article) {
