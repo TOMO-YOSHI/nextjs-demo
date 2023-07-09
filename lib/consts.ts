@@ -1,0 +1,1 @@
+export const previewAPIURL = "http://localhost:3000/api/preview?secret=MY_SECRET_TOKEN&slug=/ssg/draft";
