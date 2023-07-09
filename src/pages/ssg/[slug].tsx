@@ -14,9 +14,6 @@ export default function SsgPage({ article }: InferGetStaticPropsType<typeof getS
       <h1 className="text-center text-2xl">{article?.title}</h1>
       <p className="text-center text-lg mt-2">{article?.body}</p>
       <p className="text-center text-lg mt-2">Updated at {article?.lastUpdate}</p>
-      {
-        article?.slug === "/ssg/static" && <p className="text-center text-lg mt-2">SSG static page is revalidated every 10s.</p>
-      }
     </main>
   )
 }
@@ -69,7 +66,6 @@ export async function getStaticProps(context: GetStaticPropsContext<PageParams, 
   return {
     props: {
       article
-    },
-    revalidate: 10, // In seconds
+    }
   }
 }

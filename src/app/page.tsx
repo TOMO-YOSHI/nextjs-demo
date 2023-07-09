@@ -12,6 +12,15 @@ export default function Home() {
       <div className='text-center text-lg mt-2 underline'>
         <Link href="/ssg/static">Access /ssg/static</Link>
       </div>
+      <br />
+      <hr />
+      <br />
+      <div className='text-center text-lg mt-2 underline'>
+        <Link href="/ssg/revalidate">Access /ssg/revalidate</Link>
+      </div>
+      <br />
+      <hr />
+      <br />
       <div className='text-center text-lg mt-2 underline'>
         <Link href="/ssg/preview">Access /ssg/preview (End User)</Link>
       </div>
