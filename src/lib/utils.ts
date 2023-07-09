@@ -8,7 +8,7 @@ export const getPostBySlug = (slug: string): Promise<Article> => {
         slug: `/ssg/draft`,
         title: "SSG Draft",
         body: "This is a draft.",
-        lastUpdate: new Date().toLocaleDateString('en-US', { timeZone: 'America/New_York' })
+        lastUpdate: new Date().toLocaleTimeString()
       };
       const article = slug === post.slug ? post : null;
 

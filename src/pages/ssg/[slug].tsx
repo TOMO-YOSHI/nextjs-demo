@@ -1,4 +1,4 @@
-import '../../app/globals.css'
+import '../../../src/app/globals.css'
 import type { GetStaticPropsContext, InferGetStaticPropsType, GetStaticPaths } from 'next';
 import type { Article } from '../../types';
 
