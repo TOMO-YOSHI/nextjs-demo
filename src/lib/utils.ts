@@ -72,3 +72,7 @@ export const fakeFetch = (url: string, slug: string | null): Promise<Article | n
     }, 100);
   });
 };
+
+export const fetchDraftCondition = async (apiURL: string): Promise<{isDraft: boolean}> => {
+  return await fetch(apiURL).then(res => res.json());
+};

@@ -9,3 +9,7 @@ export const prodClearCookieAPIURL = "https://nextjs-demo-seven-mocha.vercel.app
 export const devRevalidateAPIURL = "http://localhost:3000/api/revalidate?secret=MY_SECRET_TOKEN&slug=/ssg/ondemand-revalidate";
 
 export const prodRevalidateAPIURL = "https://nextjs-demo-seven-mocha.vercel.app/api/revalidate?secret=MY_SECRET_TOKEN&slug=/ssg/ondemand-revalidate";
+
+export const devCookieCheckAPIURL = "http://localhost:3000/api/check-cookie";
+
+export const prodCookieCheckAPIURL = "https://nextjs-demo-seven-mocha.vercel.app/api/check-cookie";
