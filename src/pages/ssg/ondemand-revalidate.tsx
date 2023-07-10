@@ -17,7 +17,7 @@ export default function Revalidate({ lastUpdate }: InferGetStaticPropsType<typeo
       <p className="text-center text-lg mt-2">Updated at {lastUpdate}</p>
       <br />
       <div className='text-center'>
-        <button className="border p-1 mx-auto" onClick={onClickHandler}>Revalidate this page</button>
+        <button className="border-2 p-2 active:bg-yellow-400 mx-auto" onClick={onClickHandler}>Revalidate this page</button>
       </div>
     </main>
   )
