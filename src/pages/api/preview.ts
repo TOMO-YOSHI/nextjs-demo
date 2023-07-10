@@ -1,7 +1,7 @@
 import { getPostBySlug } from '../../lib/utils';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-// http://localhost:3000/api/preview?secret=MY_SECRET_TOKEN&slug=/ssg/draft
+// http://localhost:3000/api/preview?secret=MY_SECRET_TOKEN&slug=/ssg/preview
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   // Check the secret and next parameters
