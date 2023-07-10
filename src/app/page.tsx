@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { devPreviewAPIURL, prodPreviewAPIURL, devClearCookieAPIURL, prodClearCookieAPIURL } from '../lib/consts';
+import { devDraftAPIURL, prodDraftAPIURL, devClearCookieAPIURL, prodClearCookieAPIURL } from '../lib/consts';
 
-const previewAPIURL = process.env.NODE_ENV === "production" ? prodPreviewAPIURL : devPreviewAPIURL;
+const draftAPIURL = process.env.NODE_ENV === "production" ? prodDraftAPIURL : devDraftAPIURL;
 
 const clearCookieAPIURL = process.env.NODE_ENV === "production" ? prodClearCookieAPIURL : devClearCookieAPIURL;
 
@@ -27,16 +27,16 @@ export default function Home() {
       <br />
       <hr />
       <br />
-      <h2 className="text-center text-xl">Preview</h2>
+      <h2 className="text-center text-xl">Draft</h2>
       <div className='text-center text-lg mt-2 underline'>
-        <Link href="/ssg/preview">Access /ssg/preview (End User)</Link>
+        <Link href="/ssg/draft">Access /ssg/draft</Link>
       </div>
-      <div className='text-center text-lg mt-2 underline'>
-        <Link href={previewAPIURL}>Access /ssg/preview (Editor)</Link>
+      <div className='text-center mt-6'>
+        <Link className='border-2 p-2 active:bg-yellow-400' href={draftAPIURL}>get draft cookie</Link>
       </div>
       <br />
       <div className='text-center mt-2'>
-        <Link className='border p-1' href={clearCookieAPIURL}>clear preview cookie</Link>
+        <Link className='border-2 p-2 active:bg-yellow-400' href={clearCookieAPIURL}>clear draft cookie</Link>
       </div>
     </main>
   )

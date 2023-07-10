@@ -9,22 +9,66 @@ export const formatter = new Intl.DateTimeFormat([], {
 });
 
 export const getPostBySlug = (slug: string): Promise<Article> => {
-  return new Promise<Article>((resolve, reject) => {
+  return new Promise<Article>((resolve) => {
     setTimeout(() => {
-      const post: Article = {
-        id: "id-9876",
-        slug: `/ssg/preview`,
-        title: "SSG Preview",
-        body: "This is a preview.",
-        lastUpdate: formatter.format(new Date)
-      };
-      const article = slug === post.slug ? post : null;
+      const posts: Article[] = [
+        {
+          id: "id-1234",
+          slug: "/ssg/static",
+          title: "SSG",
+          body: "This is a static page.",
+          lastUpdate: formatter.format(new Date)
+        },
+        {
+          id: "id-9876",
+          slug: "/ssg/draft",
+          title: "SSG draft",
+          body: "This is a draft.",
+          lastUpdate: formatter.format(new Date)
+        }
+      ];
+      const article = posts.filter(post => post.slug.includes(slug))[0];
 
-      if (article) {
-        resolve(article);
-      } else {
-        reject("Not found");
+      resolve(article);
+    }, 100);
+  });
+};
+
+export const fakeFetch = (url: string, slug: string | null): Promise<Article | null> => {
+  return new Promise<Article | null>((resolve) => {
+    setTimeout(() => {
+      const posts: Article[] = url.includes('draft') ? [
+        {
+          id: "id-1234",
+          slug: "/ssg/static",
+          title: "SSG",
+          body: "This is a static page.",
+          lastUpdate: formatter.format(new Date)
+        },
+        {
+          id: "id-9876",
+          slug: "/ssg/draft",
+          title: "SSG draft",
+          body: "This is a draft.",
+          lastUpdate: formatter.format(new Date)
+        }
+      ] : [
+        {
+          id: "id-1234",
+          slug: "/ssg/static",
+          title: "SSG",
+          body: "This is a static page.",
+          lastUpdate: formatter.format(new Date)
+        }
+      ]
+
+      if(!slug) {
+        resolve(null);
+        return;
       }
+      const article = posts.filter(post => post.slug.includes(slug))[0];
+
+      resolve(article);
     }, 100);
   });
 };
