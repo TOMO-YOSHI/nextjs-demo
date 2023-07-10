@@ -27,7 +27,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
         },
       },
     ],
-    fallback: 'blocking', // true | false | 'blocking'
+    fallback: 'blocking', // true | false | 'blocking' This needs to be true or 'blocking'
   }
 }
 
@@ -39,9 +39,16 @@ export async function getStaticProps(context: GetStaticPropsContext<PageParams, 
   // - context.previewData will be the same as
   //   the argument used for `setPreviewData`.
   if (context.preview && slug === 'preview') {
+    const previewArticle = {
+      id: "id-9876",
+      slug: `/ssg/preview`,
+      title: "SSG Preview",
+      body: "This is a preview.",
+      lastUpdate: formatter.format(new Date)
+    };
     return {
       props: {
-        article: context.previewData
+        article: previewArticle
       }
     }
   }

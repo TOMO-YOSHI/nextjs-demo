@@ -8,8 +8,8 @@ export const formatter = new Intl.DateTimeFormat([], {
   second: '2-digit'
 });
 
-export const getPostBySlug = (slug: string): Promise<Article> => {
-  return new Promise<Article>((resolve, reject) => {
+export const getPostBySlug = (slug: string): Promise<Article | null> => {
+  return new Promise<Article | null>((resolve) => {
     setTimeout(() => {
       const post: Article = {
         id: "id-9876",
@@ -20,11 +20,7 @@ export const getPostBySlug = (slug: string): Promise<Article> => {
       };
       const article = slug === post.slug ? post : null;
 
-      if (article) {
-        resolve(article);
-      } else {
-        reject("Not found");
-      }
+      resolve(article);
     }, 100);
   });
 };

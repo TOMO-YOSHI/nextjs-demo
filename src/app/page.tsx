@@ -29,14 +29,15 @@ export default function Home() {
       <br />
       <h2 className="text-center text-xl">Preview</h2>
       <div className='text-center text-lg mt-2 underline'>
-        <Link href="/ssg/preview">Access /ssg/preview (End User)</Link>
-      </div>
-      <div className='text-center text-lg mt-2 underline'>
-        <Link href={previewAPIURL}>Access /ssg/preview (Editor)</Link>
+        <Link href="/ssg/preview">Access /ssg/preview</Link>
       </div>
       <br />
       <div className='text-center mt-2'>
-        <Link className='border p-1' href={clearCookieAPIURL}>clear preview cookie</Link>
+        <Link className='border-2 p-2 active:bg-yellow-400' href={previewAPIURL}>get preview cookie</Link>
+      </div>
+      <br />
+      <div className='text-center mt-2'>
+        <Link className='border-2 p-2  active:bg-yellow-400' href={clearCookieAPIURL}>clear preview cookie</Link>
       </div>
     </main>
   )
