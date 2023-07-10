@@ -1,9 +1,9 @@
 import '../../../src/app/globals.css'
 import type { GetStaticPropsContext, InferGetStaticPropsType, GetStaticPaths } from 'next';
-import { formatter } from '../../lib/utils';
+import { fakeFetch } from '../../lib/utils';
 import type { Article } from '../../types';
 
-type MyPreviewData = Article;
+type MydraftData = Article;
 type PageParams = {
   slug: string
 }
@@ -31,28 +31,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export async function getStaticProps(context: GetStaticPropsContext<PageParams, MyPreviewData>) {
+export async function getStaticProps(context: GetStaticPropsContext<PageParams, MydraftData>) {
   const { slug } = context.params ? context.params : { slug: null };
-  // If you request this page with the preview mode cookies set:
+  // If you request this page with the draft mode cookies set:
   //
-  // - context.preview will be true
-  // - context.previewData will be the same as
-  //   the argument used for `setPreviewData`.
-  if (context.preview && slug === 'preview') {
-    return {
-      props: {
-        article: context.previewData
-      }
-    }
-  }
+  // - context.draftMode will be true
+  const url = context.draftMode
+  ? 'https://draft.example.com'
+  : 'https://production.example.com';
 
-  const article: Article | null = slug === 'static' ? {
-    id: "id-1234",
-    slug: `/ssg/static`,
-    title: "SSG",
-    body: "This is a static page.",
-    lastUpdate: formatter.format(new Date)
-  } : null;
+  const article = await fakeFetch(url, slug);
 
   if (!article) {
     return {
