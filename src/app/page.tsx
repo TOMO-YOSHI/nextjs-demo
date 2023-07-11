@@ -17,6 +17,13 @@ export default function Home() {
       <br />
       <hr />
       <br />
+      <h2 className="text-center text-xl">Faullback</h2>
+      <div className='text-center text-lg mt-2 underline'>
+        <Link href="/fallback" prefetch={false}>Access /fallback</Link>
+      </div>
+      <br />
+      <hr />
+      <br />
       <h2 className="text-center text-xl">Revalidation</h2>
       <div className='text-center text-lg mt-2 underline'>
         <Link href="/ssg/revalidate" prefetch={false}>Access /ssg/revalidate</Link>
