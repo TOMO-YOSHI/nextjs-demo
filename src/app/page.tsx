@@ -26,10 +26,10 @@ export default function Home() {
       <br />
       <h2 className="text-center text-xl">Revalidation</h2>
       <div className='text-center text-lg mt-2 underline'>
-        <Link href="/ssg/revalidate" prefetch={false}>Access /ssg/revalidate</Link>
+        <Link href="/isr/revalidate" prefetch={false}>Access /isr/revalidate</Link>
       </div>
       <div className='text-center text-lg mt-2 underline'>
-        <Link href="/ssg/ondemand-revalidate" prefetch={false}>Access /ssg/ondemand-revalidate</Link>
+        <Link href="/isr/ondemand-revalidate" prefetch={false}>Access /isr/ondemand-revalidate</Link>
       </div>
       <br />
       <hr />

@@ -12,7 +12,7 @@ export default function Revalidate({ lastUpdate }: InferGetStaticPropsType<typeo
   }
   return (
     <main className="py-16">
-      <h1 className="text-center text-2xl">SSG On-Demand Revalidation</h1>
+      <h1 className="text-center text-2xl">ISR On-Demand Revalidation</h1>
       <p className="text-center text-lg mt-2">This page can be revalidated on demand.</p>
       <p className="text-center text-lg mt-2">Updated at {lastUpdate}</p>
       <br />
