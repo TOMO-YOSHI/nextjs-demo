@@ -17,7 +17,7 @@ export default function Home() {
       <br />
       <hr />
       <br />
-      <h2 className="text-center text-xl">Faullback</h2>
+      <h2 className="text-center text-xl">Fallback</h2>
       <div className='text-center text-lg mt-2 underline'>
         <Link href="/fallback" prefetch={false}>Access /fallback</Link>
       </div>
