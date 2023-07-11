@@ -36,11 +36,11 @@ export default function FallbackPage({ article }: InferGetStaticPropsType<typeof
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [
-      {
-        params: {
-          slug: 'blocking',
-        },
-      },
+      // {
+      //   params: {
+      //     slug: 'blocking',
+      //   },
+      // },
     ],
     fallback: 'blocking', // true | false | 'blocking' This needs to be 'true' or 'blocking
   }
@@ -56,7 +56,7 @@ export async function getStaticProps(context: GetStaticPropsContext<PageParams, 
     id: "id-1111",
     slug: `/fallback/blocking`,
     title: "SSG",
-    body: `This is a fallback blocking page.`,
+    body: `This is a fallback ${slug} page.`,
     lastUpdate: formatter.format(new Date)
   }
 
