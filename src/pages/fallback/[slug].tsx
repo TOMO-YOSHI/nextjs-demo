@@ -1,5 +1,4 @@
 import '../../../src/app/globals.css'
-import { useEffect, useState } from 'react';
 import type { GetStaticPropsContext, InferGetStaticPropsType, GetStaticPaths } from 'next';
 import { formatter } from '../../lib/utils';
 import type { Article } from '../../types';

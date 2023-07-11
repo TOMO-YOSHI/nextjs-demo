@@ -8,7 +8,7 @@ const clearCookieAPIURL = process.env.NODE_ENV === "production" ? prodClearCooki
 export default function Home() {
   return (
     <main className="py-16">
-      <h1 className="text-center text-2xl">Next.js SSG experimental Website</h1>
+      <h1 className="text-center text-2xl">Next.js SSG/ISR Demo Website</h1>
       <br />
       <h2 className="text-center text-xl">Static</h2>
       <div className='text-center text-lg mt-2 underline'>
